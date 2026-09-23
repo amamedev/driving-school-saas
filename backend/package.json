@@ -1,7 +1,7 @@
 {
-  "name": "au-ubeda-saas",
+  "name": "driving-school-saas",
   "version": "1.0.0",
-  "description": "Sistema SaaS para gestión interna de Autoescuela Ubeda (Córdoba)",
+  "description": "Sistema SaaS para gestión interna de Autoescuela",
   "main": "server.js",
   "type": "module",
   "imports": {
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/amamedev/au-ubeda-saas.git"
+    "url": "https://github.com/amamedev/driving-school-saas.git"
   },
   "author": "Alejandro Marín Melero",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/amamedev/au-ubeda-saas/issues"
+    "url": "https://github.com/amamedev/driving-school-saas.git/issues"
   },
-  "homepage": "https://github.com/amamedev/au-ubeda-saas#readme",
+  "homepage": "https://github.com/amamedev/driving-school-saas.git#readme",
   "dependencies": {
     "@supabase/supabase-js": "^2.105.4",
     "cors": "^2.8.6",

@@ -10,7 +10,7 @@ const ticketController = {
       const ticket = req.body;
       const createdTicket = await ticketService.createTicket(ticket);
 
-      return res.status(201).json({
+      res.status(201).json({
         message: "Ticket registrado correctamente",
         status: 201,
         success: true,
@@ -28,7 +28,7 @@ const ticketController = {
     try {
       const tickets = await ticketService.getTickets();
 
-      return res.status(200).json({
+      res.status(200).json({
         message: "Tickets obtenidos",
         status: 200,
         success: true,
@@ -47,7 +47,7 @@ const ticketController = {
     try {
       const id = req.params.id;
       const ticket = await ticketService.getTicketByID(id);
-      return res.status(200).json({
+      res.status(200).json({
         status: 200,
         message: "Ticket obtenido",
         success: true,
@@ -66,7 +66,7 @@ const ticketController = {
       const id = req.params.id;
       const changes = req.body;
       const patchedTicket = await ticketService.patchTicket(id, changes);
-      return res.status(200).json({
+      res.status(200).json({
         status: 200,
         message: "Ticket actualizado",
         success: true,
@@ -83,7 +83,7 @@ const ticketController = {
   deleteTickets: async (req, res, next) => {
     try {
       const deletedTickets = await ticketService.deleteTickets();
-      return res.status(200).json({
+      res.status(200).json({
         status: 200,
         message: "Se han eliminado todos los tickets",
         success: true,
@@ -102,7 +102,7 @@ const ticketController = {
       const id = req.params.id;
       const deletedTicket = await ticketService.deleteTicketByID(id);
 
-      return res.status(200).json({
+      res.status(200).json({
         status: 200,
         message: "Ticket eliminado",
         success: true,
@@ -123,7 +123,7 @@ const ticketController = {
       // Procesar el archivo CSV y crear los tickets
       console.log("Importando tickets...");
       const importedTickets = await ticketService.importTickets(req.file);
-      return res.status(200).json({
+      res.status(200).json({
         status: 200,
         message: "Tickets importados",
         success: true,

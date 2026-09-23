@@ -9,8 +9,12 @@ export const jsonToCsv = async (tickets, filePath) => {
         excelBOM: true,
       });
       if (csv) {
-        fs.writeFileSync(filePath, csv, { encoding: "utf8" });
-        resolve(csv);
+        fs.writeFile(filePath, csv, { encoding: "utf8" }, (err) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(csv);
+        });
       }
     } catch (error) {
       reject(error);
@@ -22,9 +26,13 @@ export const jsonToCsv = async (tickets, filePath) => {
 export const csvToJson = async (filePath) => {
   return await new Promise((resolve, reject) => {
     try {
-      const readCsv = fs.readFileSync(filePath, { encoding: "utf-8" });
-      const json = csv2json(readCsv);
-      resolve(json);
+      fs.readFile(filePath, { encoding: "utf-8" }, (err, data) => {
+        if (err) {
+          reject(err);
+        }
+        const json = csv2json(data);
+        resolve(json);
+      });
     } catch (error) {
       reject(error);
     }
